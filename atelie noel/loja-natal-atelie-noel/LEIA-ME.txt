@@ -1,122 +1,33 @@
-==============================================================================
-FICHA DE ENTREGA E DOCUMENTAÇÃO TÉCNICA - AVALIAÇÃO AV2 (DWS)
-COLÉGIO UNASP | CURSO TÉCNICO EM INFORMÁTICA
-PROFESSOR ORIENTADOR: Samuel Elias
-==============================================================================
-
-1. IDENTIFICAÇÃO DO PROJETO
-------------------------------------------------------------------------------
-LOJA: Ateliê Noël (Desde 1988)
+LOJA: Ateliê Noël
 SEGMENTO: Roupas, Sneakers e Presentes Natalinos de Alto Padrão
 TURMA: 1TIB
-DATA DE ENTREGA: 08/11/2026
+INTEGRANTES:
+- Abner - Nº __ (HTML5 Semântico, CSS & Identidade Visual)
+- Michel - Nº __ (JavaScript & Recursos Interativos)
+- Yhuri - Nº __ (Catálogo dos 50 Produtos & Conteúdo)
 
-INTEGRANTES E ATRIBUIÇÕES:
-* Abner  -> HTML5 Semântico, CSS & Identidade Visual
-* Michel -> JavaScript & Recursos Interativos
-* Yhuri  -> Catálogo dos 50 Produtos & Conteúdo
+LINKS:
+Site (GitHub Pages): https://michelchaves461-creator.github.io/loja-natal-atelie-noel/
+Repositório (GitHub): https://github.com/michelchaves461-creator/loja-natal-atelie-noel
+Vídeo (YouTube): https://www.youtube.com/watch?v=SEU_LINK_AQUI
 
+RECURSOS DE JAVASCRIPT IMPLEMENTADOS:
+1. Slideshow / Carrossel automático com botões e indicadores (index.html) - OBRIGATÓRIO
+2. Parallax em JavaScript com camadas data-velocidade (index.html) - OBRIGATÓRIO
+3. Sons natalinos com controle de áudio e efeitos sonoros (todas as páginas) - OBRIGATÓRIO
+4. Cards dinâmicos gerados a partir do array de 50 produtos (produtos.html) - OBRIGATÓRIO
+5. Filtro por categoria, busca em tempo real e ordenação (produtos.html) - OBRIGATÓRIO
+6. Carrinho de compras com localStorage e delegação de eventos (produtos.html)
+7. Contagem regressiva até o Natal com setInterval (index.html e sobre.html)
+8. Validação completa de formulário com Regex de e-mail (contato.html)
+9. Menu responsivo hambúrguer (todas as páginas)
+10. Janela modal de detalhes e lightbox de galeria (produtos.html e galeria.html)
+11. Efeito de neve com cristais em Canvas 2D nativo (todas as páginas)
+12. Alternância de tema claro/escuro Noite de Natal salva em localStorage (todas as páginas)
+13. Botão voltar ao topo após rolagem suave (todas as páginas)
 
-2. ESTRUTURA RIGOROSA DE DIRETÓRIOS E ARQUIVOS
-------------------------------------------------------------------------------
-loja-natal-atelie-noel/
-├── index.html          (Página 1: Início - Apresentação, Hero Parallax, Slideshow e Destaques)
-├── produtos.html       (Página 2: Catálogo Completo com os 50 produtos, filtros e busca)
-├── sobre.html          (Página 3: Sobre Nós, História da Loja, Missão, Visão e Equipe)
-├── galeria.html        (Página 4: Galeria de Fotos com Lightbox e Ofertas Especiais)
-├── contato.html        (Página 5: Formulário de Contato com validação e localização)
-├── LEIA-ME.txt         (Ficha técnica oficial da avaliação)
-├── css/
-│   ├── style.css       (Variáveis :root, layout Grid/Flexbox, tipografia e animações)
-│   └── responsivo.css  (Media queries Mobile-First: 320px, 600px+ e 992px+)
-└── js/
-    ├── produtos.js     (Array com exatamente 50 objetos divididos em 5 categorias)
-    └── script.js       (Lógica, eventos delegados, Web Audio API, Canvas e localStorage)
-
-
-3. ARQUITETURA MULTI-PAGE (SEM SPA E SEM DISPLAY:NONE)
-------------------------------------------------------------------------------
-- Cada uma das 5 páginas é um arquivo HTML5 100% autônomo e semântico.
-- Não há simulação de troca de abas ocultando divs; os links do menu (<nav>)
-  navegam autenticamente entre index.html, produtos.html, sobre.html,
-  galeria.html e contato.html.
-- O link da página atual possui a classe "ativo", disparando o sublinhado
-  dourado decorativo via CSS (a.ativo::after).
-- Todas as páginas contêm a importação dos dois arquivos CSS no <head>:
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/responsivo.css">
-- Todas as páginas importam os scripts no rodapé antes do fechamento do <body>:
-  <script src="js/produtos.js"></script>
-  <script src="js/script.js"></script>
+CRÉDITOS:
+- Imagens: Unsplash e Pexels (licença livre)
+- Áudio: Kevin MacLeod - Jingle Bells / We Wish You a Merry Christmas (Creative Commons / Wikimedia Commons)
 
 
-4. LISTA DE RECURSOS IMPLEMENTADOS
-------------------------------------------------------------------------------
-[RECURSOS OBRIGATÓRIOS DO GUIA DA AV2]
-1. Slideshow Automático:
-   - Alternância automática a cada 5 segundos com transição CSS suave.
-   - Botões Anterior/Próximo e bolinhas indicadoras dinâmicas.
-2. Efeito Parallax em JavaScript:
-   - Rolagem diferencial com base no evento window.addEventListener('scroll').
-   - Aplicação dinâmica em elementos com atributo [data-velocidade].
-3. Controle de Áudio Interativo & Síntese Sonora:
-   - Trilha natalina instrumental iniciada estritamente por clique do usuário.
-   - Volume inicial regulado em 0.3 (30%) para conforto acústico.
-   - Função tocarSino() sintetizando tríade de sino natalino (C6, E6, G6)
-     através da Web Audio API nativa (sem arquivos de áudio externos para efeitos).
-4. Geração Dinâmica de Cartões (Catálogo dos 50 Produtos):
-   - Renderização completa via map() e template literals em JavaScript puro.
-   - Imagens com carregamento otimizado (loading="lazy") e tags alt descritivas.
-   - Seletor de tonalidade de peça (trocarCorCard via CSS filter).
-5. Filtros Combinados, Busca e Contador:
-   - Filtro por categoria com as 5 categorias padronizadas da loja.
-   - Busca em tempo real por nome ou descrição do produto.
-   - Ordenação dinâmica por preço (menor/maior) e ordem alfabética (A-Z).
-   - Contador de exibição em tempo real: "Mostrando X de 50 produtos".
-
-[RECURSOS EXTRAS E POLIMENTO PROFISSIONAL]
-6. Carrinho de Compras Persistente:
-   - Salvo automaticamente no localStorage do navegador.
-   - Delegação de eventos no elemento document.body para botões .btn-comprar.
-   - Atualização em tempo real de contadores, badge e gaveta lateral (drawer).
-7. Contagem Regressiva para o Natal:
-   - Cálculo temporal exato em dias, horas, minutos e segundos até 25/12.
-8. Validação de Formulário com Expressão Regular:
-   - Verificação de campos obrigatórios e regex de e-mail:
-     /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-   - Feedback visual colorido (verde para sucesso, carmim para erro).
-9. Menu Mobile Hambúrguer:
-   - Interação suave com transição animada e links diretos para as 5 páginas.
-10. Flocos de Neve Cristalinos de 6 Pontas em Canvas Puro:
-    - Renderização procedural nativa com rotação contínua e física suave.
-11. Modo Noturno ("Noite de Natal"):
-    - Alternância de variáveis CSS em tempo real ao clicar no ícone da lua/sol.
-12. Botão "Voltar ao Topo":
-    - Exibição automática após 400px de rolagem vertical com rolagem suave.
-13. Modais & Lightbox:
-    - Modal de visualização rápida do produto e Lightbox com zoom na galeria.
-
-
-5. PADRONIZAÇÃO DO CATÁLOGO DE 50 PRODUTOS (js/produtos.js)
-------------------------------------------------------------------------------
-As 5 categorias contêm exatamente 10 produtos cada (IDs 1 a 50 sem repetição):
-- IDs 01 a 10: Streetwear Natalino
-- IDs 11 a 20: Sneakers & Calçados
-- IDs 21 a 30: Alta Alfaiataria
-- IDs 31 a 40: Acessórios & Joias
-- IDs 41 a 50: Colecionáveis & Decor
-
-Todos os preços são números decimais (float) e os objetos contêm as propriedades
-id, nome, categoria, preco, imagem, descricao e destaque.
-
-
-6. CRÉDITOS E FONTES
-------------------------------------------------------------------------------
-* Fotografias de Alta Resolução: Unsplash (Licença Aberta / Comercial Livre)
-* Ícones Vetoriais: Font Awesome 6.5.1
-* Tipografia Editorial: Google Fonts (Playfair Display & Poppins)
-* Trilha Sonora: "Jingle Bells" por Kevin MacLeod (incompetech.com)
-  Licenciado sob Creative Commons: By Attribution 3.0 License
-  Hospedado no repositório Wikimedia Commons
-* Identidade Visual e Brasão: Vetor SVG autoral desenvolvido para o Ateliê Noël
-==============================================================================
