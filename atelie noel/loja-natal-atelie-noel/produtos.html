@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Ateliê Noël | Catálogo com os 50 Produtos Exclusivos</title>
+
+    <link rel="icon" href="https://placehold.co/32x32/B3202A/FFFFFF?text=N">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsivo.css">
+</head>
+<body>
+
+    <canvas id="snow-canvas"></canvas>
+
+    <audio id="audio-natal-animado" loop preload="auto">
+        <source src="https://commons.wikimedia.org/wiki/Special:FilePath/Jingle_Bells_(ISRC_USUAN1100187).mp3" type="audio/mpeg">
+        <source src="https://incompetech.com/music/royalty-free/mp3-royaltyfree/Jingle%20Bells.mp3" type="audio/mpeg">
+    </audio>
+
+    <header>
+        <div class="cabecalho-container">
+            
+            <a href="index.html" class="marca-loja">
+                <svg class="brasao-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Brasão Ateliê Noël">
+                    <circle cx="50" cy="50" r="46" fill="#B3202A" stroke="#C9A227" stroke-width="3"/>
+                    <path d="M50 20 L65 42 L55 42 L68 62 L55 62 L72 82 L28 82 L45 62 L32 62 L45 42 L35 42 Z" fill="#1F5D3A" stroke="#C9A227" stroke-width="1.5"/>
+                    <polygon points="50,15 52,19 56,20 53,23 54,27 50,25 46,27 47,23 44,20 48,19" fill="#C9A227"/>
+                    <circle cx="50" cy="50" r="47" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-dasharray="3,3"/>
+                </svg>
+                <div class="marca-textos">
+                    <h2>Ateliê Noël</h2>
+                    <span class="marca-data">DESDE 1988</span>
+                </div>
+            </a>
+
+            <nav class="menu-navegacao" aria-label="Navegação Principal">
+                <a href="index.html">Início</a>
+                <a href="produtos.html" class="ativo">Catálogo</a>
+                <a href="sobre.html">Sobre Nós</a>
+                <a href="galeria.html">Galeria</a>
+                <a href="contato.html">Contato</a>
+            </nav>
+
+            <div class="acoes-topo">
+                <button class="btn-musica-topo" onclick="alternarMusicaNatal()" title="Tocar música de Natal instrumental">
+                    <i id="icone-musica" class="fa-solid fa-music"></i>
+                    <span id="texto-musica" class="texto-btn-musica">Tocar música</span>
+                </button>
+
+                <button class="btn-icone" onclick="alternarModoClaroEscuro()" title="Alternar Modo Noite de Natal" aria-label="Alternar Tema">
+                    <i id="icone-tema" class="fa-solid fa-moon"></i>
+                </button>
+
+                <button class="btn-carrinho-topo" onclick="toggleCarrinho(true)" title="Ver Sacola de Natal" aria-label="Abrir Sacola de Compras">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span id="qtd-carrinho" class="badge-carrinho">0</span>
+                    <span id="total-carrinho" class="total-topo-texto">R$ 0,00</span>
+                </button>
+
+                <button class="btn-icone btn-hamburguer" onclick="alternarMenuMobile()" title="Abrir menu mobile" aria-label="Abrir Menu de Navegação">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <nav class="menu-mobile" id="menu-mobile" aria-label="Navegação Mobile">
+            <a href="index.html">Início</a>
+            <a href="produtos.html" class="ativo">Catálogo (50 Itens)</a>
+            <a href="sobre.html">Sobre Nós & Equipe</a>
+            <a href="galeria.html">Galeria & Vitrines</a>
+            <a href="contato.html">Fale Conosco</a>
+        </nav>
+    </header>
+
+    <main class="secao-conteudo">
+        <div class="cabecalho-secao">
+            <span class="subtitulo-secao">Coleção Completa 2026</span>
+            <h1 class="titulo-secao">Catálogo Geral de Natal (50 Produtos)</h1>
+            <p style="font-size: 0.88rem; color: var(--texto-suave); margin-top: 0.4rem;">
+                Explore nossas 5 categorias de alto padrão com peças exclusivas numeradas, calçados artesanais e colecionáveis.
+            </p>
+        </div>
+
+        <section class="painel-filtros" aria-label="Filtros do Catálogo">
+            
+            <div class="campo-busca-wrap">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="busca" class="input-padrao" placeholder="Buscar por peça, tecido, modelo ou detalhe..." aria-label="Pesquisar produto">
+            </div>
+
+            <div>
+                <select id="categoria" class="input-padrao" aria-label="Filtrar por Categoria">
+                    <option value="todas">Todas as 5 Categorias (50 Itens)</option>
+                    <option value="Streetwear Natalino">1. Streetwear Natalino (10 Itens)</option>
+                    <option value="Sneakers & Calçados">2. Sneakers & Calçados (10 Itens)</option>
+                    <option value="Alta Alfaiataria">3. Alta Alfaiataria (10 Itens)</option>
+                    <option value="Acessórios & Joias">4. Acessórios & Joias (10 Itens)</option>
+                    <option value="Colecionáveis & Decor">5. Colecionáveis & Decor (10 Itens)</option>
+                </select>
+            </div>
+
+            <div>
+                <select id="ordenacao" class="input-padrao" aria-label="Ordenar produtos">
+                    <option value="padrao">Ordenação Original (ID)</option>
+                    <option value="menor-preco">Menor Preço &rarr; Maior</option>
+                    <option value="maior-preco">Maior Preço &rarr; Menor</option>
+                    <option value="nome-az">Ordem Alfabética (A - Z)</option>
+                </select>
+            </div>
+        </section>
+
+        <div class="barra-contador">
+            <span id="contador" style="font-weight: 600; color: var(--texto-suave);">Mostrando 50 de 50 produtos</span>
+            <button onclick="limparFiltrosCatalogo()" class="btn-secundario" style="color: var(--texto-cor); border-color: var(--cinza-borda); font-size: 0.75rem; padding: 0.35rem 0.8rem; width: auto;">
+                <i class="fa-solid fa-rotate-left"></i> Limpar Filtros
+            </button>
+        </div>
+
+        <section id="lista-produtos" class="grade-produtos" aria-label="Grade de Produtos">
+            
+        </section>
+    </main>
+
+    <aside id="gaveta-carrinho" class="gaveta-carrinho" aria-label="Sacola de Compras">
+        <div class="carrinho-header">
+            <h3 style="font-family: var(--fonte-titulo); font-size: 1.2rem; display: flex; align-items: center; gap: 0.5rem;">
+                <i class="fa-solid fa-gift" style="color: var(--vermelho);"></i> Sacola Noël
+            </h3>
+            <button onclick="toggleCarrinho(false)" style="background: none; border: none; font-size: 1.3rem; cursor: pointer; color: var(--texto-cor);">&times;</button>
+        </div>
+        <div id="lista-carrinho" class="carrinho-itens"></div>
+        <div class="carrinho-rodape">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; font-size: 1rem; font-weight: 700;">
+                <span>Total:</span>
+                <span id="subtotal-carrinho" style="color: var(--vermelho); font-family: var(--fonte-titulo); font-size: 1.15rem;">R$ 0,00</span>
+            </div>
+            <button onclick="finalizarCompra()" class="btn-principal" style="width: 100%;">Finalizar Pedido de Natal</button>
+        </div>
+    </aside>
+
+    <div id="modal-produto" class="modal-fundo" onclick="fecharModalProduto()">
+        <div class="modal-conteudo" onclick="event.stopPropagation()">
+            <button onclick="fecharModalProduto()" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--texto-cor);">&times;</button>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; align-items: center;">
+                <img id="modal-img-principal" src="" alt="Produto Detalhado" style="width: 100%; max-height: 380px; object-fit: cover; border-radius: 12px;">
+                <div>
+                    <span id="modal-categoria" class="tag-banner" style="background: var(--verde); margin-bottom: 0.6rem;"></span>
+                    <h2 id="modal-titulo" style="font-family: var(--fonte-titulo); font-size: 1.6rem; margin-bottom: 0.6rem; line-height: 1.2;"></h2>
+                    <strong id="modal-preco" style="font-family: var(--fonte-titulo); font-size: 1.8rem; color: var(--vermelho); display: block; margin-bottom: 1rem;"></strong>
+                    <p id="modal-descricao" style="color: var(--texto-suave); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;"></p>
+                    <button id="modal-btn-comprar" class="btn-principal" style="width: 100%;"><i class="fa-solid fa-cart-plus"></i> Adicionar à Sacola</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-lightbox" class="modal-fundo" onclick="fecharLightbox()">
+        <div style="position: relative; max-width: 90vw; max-height: 90vh; text-align: center;" onclick="event.stopPropagation()">
+            <button onclick="fecharLightbox()" style="position: absolute; top: -2.5rem; right: 0; background: none; border: none; color: #FFFFFF; font-size: 2rem; cursor: pointer;">&times;</button>
+            <img id="lightbox-img" src="" alt="Ampliação" style="max-width: 100%; max-height: 80vh; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+            <p id="lightbox-legenda" style="color: #FFFFFF; margin-top: 0.8rem; font-size: 0.95rem; font-weight: 500;"></p>
+        </div>
+    </div>
+
+    <button id="topo" title="Voltar ao Topo"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <footer>
+        <div class="rodape-container">
+            <div class="grade-rodape">
+                <div class="coluna-rodape">
+                    <h3 style="font-family: var(--fonte-titulo); font-size: 1.2rem; margin-bottom: 0.6rem;">Ateliê Noël</h3>
+                    <p style="font-size: 0.82rem; color: var(--texto-suave); line-height: 1.6;">Roupas, sneakers e presentes natalinos de alto padrão desde 1988. Tradição, acabamento primoroso e o espírito do Natal para todas as famílias.</p>
+                </div>
+                <div class="coluna-rodape">
+                    <h4 style="font-size: 0.82rem; text-transform: uppercase; margin-bottom: 0.6rem; letter-spacing: 0.05em;">Páginas</h4>
+                    <p><a href="index.html" style="font-size: 0.82rem; color: var(--texto-suave);">Início</a></p>
+                    <p><a href="produtos.html" style="font-size: 0.82rem; color: var(--texto-suave);">Catálogo (50 Itens)</a></p>
+                    <p><a href="sobre.html" style="font-size: 0.82rem; color: var(--texto-suave);">Sobre Nós & Equipe</a></p>
+                    <p><a href="galeria.html" style="font-size: 0.82rem; color: var(--texto-suave);">Galeria & Vitrines</a></p>
+                    <p><a href="contato.html" style="font-size: 0.82rem; color: var(--texto-suave);">Fale Conosco</a></p>
+                </div>
+                <div class="coluna-rodape">
+                    <h4 style="font-size: 0.82rem; text-transform: uppercase; margin-bottom: 0.6rem; letter-spacing: 0.05em;">Categorias</h4>
+                    <p><a href="produtos.html" style="font-size: 0.82rem; color: var(--texto-suave);">Streetwear Natalino</a></p>
+                    <p><a href="produtos.html" style="font-size: 0.82rem; color: var(--texto-suave);">Sneakers & Calçados</a></p>
+                    <p><a href="produtos.html" style="font-size: 0.82rem; color: var(--texto-suave);">Alta Alfaiataria</a></p>
+                    <p><a href="produtos.html" style="font-size: 0.82rem; color: var(--texto-suave);">Acessórios & Joias</a></p>
+                    <p><a href="produtos.html" style="font-size: 0.82rem; color: var(--texto-suave);">Colecionáveis & Decor</a></p>
+                </div>
+                <div class="coluna-rodape">
+                    <h4 style="font-size: 0.82rem; text-transform: uppercase; margin-bottom: 0.6rem; letter-spacing: 0.05em;">Equipe AV2 - 1TIB</h4>
+                    <p style="font-size: 0.82rem; color: var(--texto-suave);"><strong>Abner:</strong> HTML5 & CSS</p>
+                    <p style="font-size: 0.82rem; color: var(--texto-suave);"><strong>Michel:</strong> JavaScript</p>
+                    <p style="font-size: 0.82rem; color: var(--texto-suave);"><strong>Yhuri:</strong> Catálogo & Conteúdo</p>
+                    <p style="font-size: 0.78rem; color: var(--verde); font-weight: 600; margin-top: 0.4rem;">Prof. Samuel Elias (UNASP)</p>
+                </div>
+            </div>
+            <div class="rodape-fim">
+                <div>&copy; 2026 Ateliê Noël. Todos os direitos reservados. Avaliação Técnica DWS.</div>
+                <div>Imagens: Unsplash | Trilha: Kevin MacLeod (Wikimedia Commons)</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/produtos.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

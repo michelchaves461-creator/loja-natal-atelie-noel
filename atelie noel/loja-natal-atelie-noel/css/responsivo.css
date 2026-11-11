@@ -1,0 +1,235 @@
+html, body {
+    overflow-x: hidden !important;
+}
+
+.menu-navegacao {
+    display: none;
+}
+
+.btn-hamburguer {
+    display: flex;
+}
+
+.texto-btn-musica {
+    display: none;
+}
+
+.total-topo-texto {
+    display: none;
+}
+
+.botoes-banner {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+.botoes-banner .btn-principal,
+.botoes-banner .btn-secundario {
+    width: 100%;
+}
+
+.grade-produtos {
+    grid-template-columns: 1fr;
+}
+
+.conteudo-slide {
+    grid-template-columns: 1fr;
+}
+
+.caixa-equipe-grid {
+    grid-template-columns: 1fr;
+}
+
+.mvv-grid {
+    grid-template-columns: 1fr;
+}
+
+.galeria-grid {
+    grid-template-columns: 1fr;
+}
+
+.painel-filtros {
+    grid-template-columns: 1fr;
+}
+
+.contato-layout {
+    grid-template-columns: 1fr;
+}
+
+.grade-rodape {
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 600px) {
+    .cabecalho-container {
+        padding: 0.75rem 1.2rem;
+        gap: 0.8rem;
+    }
+
+    .brasao-svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .marca-textos h2 {
+        font-size: 1.2rem;
+    }
+
+    .texto-btn-musica {
+        display: inline;
+    }
+
+    .total-topo-texto {
+        display: inline;
+    }
+
+    .botoes-banner {
+        flex-direction: row;
+        max-width: none;
+        width: auto;
+    }
+
+    .botoes-banner .btn-principal,
+    .botoes-banner .btn-secundario {
+        width: auto;
+    }
+
+    .grade-produtos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .conteudo-slide {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .slide-texto {
+        padding: 2rem;
+    }
+
+    .slide-img img {
+        height: 280px;
+    }
+
+    .caixa-equipe-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card-integrante {
+        flex-direction: row;
+        text-align: left;
+        align-items: flex-start;
+        padding: 1.5rem;
+    }
+
+    .galeria-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .painel-filtros {
+        grid-template-columns: 2fr 1fr 1fr;
+    }
+
+    .grade-rodape {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .rodape-fim {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+}
+
+@media (min-width: 992px) {
+    .cabecalho-container {
+        padding: 0.8rem 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .brasao-svg {
+        width: 44px;
+        height: 44px;
+    }
+
+    .marca-textos h2 {
+        font-size: 1.35rem;
+    }
+
+    .marca-data {
+        font-size: 0.75rem;
+    }
+
+    .menu-navegacao {
+        display: flex;
+        align-items: center;
+        gap: 1.8rem;
+    }
+
+    .btn-hamburguer {
+        display: none !important;
+    }
+
+    .menu-mobile {
+        display: none !important;
+    }
+
+    .banner-parallax {
+        min-height: 65vh;
+        background-attachment: fixed;
+        padding: 4rem 1.5rem;
+    }
+
+    .secao-conteudo {
+        padding: 4rem 1.5rem;
+    }
+
+    .grade-produtos {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+    }
+
+    .slide-texto {
+        padding: 2.5rem;
+    }
+
+    .slide-img img {
+        height: 320px;
+    }
+
+    .mvv-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .caixa-equipe-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .galeria-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .contato-layout {
+        grid-template-columns: 5fr 7fr;
+        gap: 2.5rem;
+    }
+
+    .formulario-bloco {
+        padding: 2rem;
+    }
+
+    .modal-conteudo {
+        padding: 2rem;
+    }
+
+    .grade-rodape {
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 2rem;
+    }
+
+    footer {
+        padding: 4rem 1.5rem 2rem;
+        margin-top: 4rem;
+    }
+}
