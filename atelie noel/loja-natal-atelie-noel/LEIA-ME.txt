@@ -8,8 +8,8 @@ INTEGRANTES:
 
 LINKS:
 Site (GitHub Pages): https://michelchaves461-creator.github.io/loja-natal-atelie-noel/
-Repositório (GitHub): https://github.com/michelchaves461-creator/loja-natal-atelie-noel
-Vídeo (YouTube): https://www.youtube.com/watch?v=SEU_LINK_AQUI
+Repositório (GitHub): (https://github.com/michelchaves461-creator/loja-natal-atelie-noel)
+Vídeo (YouTube): https://youtu.be/s1eU4Dzbxik
 
 RECURSOS DE JAVASCRIPT IMPLEMENTADOS:
 1. Slideshow / Carrossel automático com botões e indicadores (index.html) - OBRIGATÓRIO
